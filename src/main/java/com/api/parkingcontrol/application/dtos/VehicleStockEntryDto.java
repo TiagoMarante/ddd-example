@@ -8,24 +8,32 @@ import javax.validation.constraints.Size;
 
 @Getter
 @Setter
-public class ParkingSpotDto {
-
+public class VehicleStockEntryDto {
     @NotBlank
     private String parkingSpotNumber;
+
     @NotBlank
-    @Size(max = 7)
+    @Size(max = 20)
     private String licensePlateCar;
+
     @NotBlank
-    private String brandCar;
+    @Size(max = 70)
+    private String type;
+
     @NotBlank
-    private String modelCar;
+    private int id_card;
+
     @NotBlank
-    private String colorCar;
+    @Size(max = 200)
+    private String condition;
+
     @NotBlank
-    private String responsibleName;
+    @Size(max = 200)
+    private String description;
+
+
     @NotBlank
-    private String apartment;
-    @NotBlank
-    private String block;
+    @Size(max = 200)
+    private String statusDescription;
 
 }
