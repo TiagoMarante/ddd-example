@@ -1,4 +1,4 @@
-package com.api.parkingcontrol.domain.models;
+package com.api.parkingcontrol.init.models.VehicleStockEntry;
 
 
 import lombok.AllArgsConstructor;

@@ -1,8 +1,8 @@
-package com.api.parkingcontrol.presentation.controllers;
+package com.api.parkingcontrol.init.controllers;
 
-import com.api.parkingcontrol.application.dtos.ParkingSpotDto;
-import com.api.parkingcontrol.domain.models.ParkingSpotModel;
-import com.api.parkingcontrol.application.services.ParkingSpotService;
+import com.api.parkingcontrol.init.dto.ParkingSpotDto;
+import com.api.parkingcontrol.init.models.ParkingSpotModel.ParkingSpotModel;
+import com.api.parkingcontrol.init.service.ParkingSpotService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

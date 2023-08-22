@@ -1,7 +1,7 @@
-package com.api.parkingcontrol.application.services;
+package com.api.parkingcontrol.init.service;
 
-import com.api.parkingcontrol.domain.models.ParkingSpotModel;
-import com.api.parkingcontrol.infrastructure.repositories.ParkingSpotRepository;
+import com.api.parkingcontrol.init.models.ParkingSpotModel.ParkingSpotModel;
+import com.api.parkingcontrol.init.repository.ParkingSpotRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
