@@ -1,11 +1,21 @@
 package com.api.parkingcontrol.models.Company;
 
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "COMPANY")
-public class Company {
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
+public class Company implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

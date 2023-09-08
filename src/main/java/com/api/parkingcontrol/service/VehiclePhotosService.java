@@ -26,12 +26,12 @@ public class VehiclePhotosService {
         var vehiclePhotos = new VehiclePhotos();
         BeanUtils.copyProperties(createVehiclePhotosDto, vehiclePhotos);
 
-        var vehicleStockEntry = vehicleStockEntryRepository.findById(createVehiclePhotosDto.getId()).orElseThrow(() -> new VehiclePhotosException("Entry stock not Found !!!"));
+        var vehicleStockEntry = vehicleStockEntryRepository.findById(createVehiclePhotosDto.getId()).orElseThrow(() ->
+                new VehiclePhotosException("Entry stock not Found !!!"));
+
         vehiclePhotos.setVehicleStockEntry(vehicleStockEntry);
 
         vehiclePhotosRepository.save(vehiclePhotos);
-
-        System.out.println("MAP " + mapToResponse(vehiclePhotos));
 
         return mapToResponse(vehiclePhotos);
     }
@@ -46,7 +46,6 @@ public class VehiclePhotosService {
         var vehiclePhoto = vehiclePhotosRepository.findByVehicleStockEntry_Id(id);
         return vehiclePhoto.stream().map(this::mapToResponse).collect(Collectors.toList());
     }
-
 
 
 
