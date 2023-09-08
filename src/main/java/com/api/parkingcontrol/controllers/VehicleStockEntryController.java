@@ -1,6 +1,6 @@
 package com.api.parkingcontrol.controllers;
 
-import com.api.parkingcontrol.dto.VehicleStockEntryDto;
+import com.api.parkingcontrol.dto.creation.CreateVehicleStockEntryDto;
 import com.api.parkingcontrol.dto.responses.ResponseVehicleStockEntry;
 import com.api.parkingcontrol.service.VehicleStockEntryService;
 import lombok.AllArgsConstructor;
@@ -23,8 +23,8 @@ public class VehicleStockEntryController {
     final VehicleStockEntryService vehicleStockEntryService;
 
     @PostMapping
-    public ResponseEntity<ResponseVehicleStockEntry> createVehicleStockEntry(@RequestBody @Valid VehicleStockEntryDto vehicleStockEntryDto){
-        return new ResponseEntity<>(vehicleStockEntryService.saveVehicleStockEntry(vehicleStockEntryDto), HttpStatus.CREATED);
+    public ResponseEntity<ResponseVehicleStockEntry> createVehicleStockEntry(@RequestBody @Valid CreateVehicleStockEntryDto createVehicleStockEntryDto){
+        return new ResponseEntity<>(vehicleStockEntryService.saveVehicleStockEntry(createVehicleStockEntryDto), HttpStatus.CREATED);
     }
 
     @GetMapping

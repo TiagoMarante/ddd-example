@@ -1,6 +1,6 @@
 package com.api.parkingcontrol.controllers;
 
-import com.api.parkingcontrol.dto.VehiclePhotosDto;
+import com.api.parkingcontrol.dto.creation.CreateVehiclePhotosDto;
 import com.api.parkingcontrol.dto.responses.ResponseVehiclePhotos;
 import com.api.parkingcontrol.service.VehiclePhotosService;
 import lombok.AllArgsConstructor;
@@ -23,8 +23,8 @@ public class VehiclePhotosController {
     final VehiclePhotosService vehiclePhotosService;
 
     @PostMapping
-    public ResponseEntity<ResponseVehiclePhotos> createVehiclePhotos(@RequestBody @Valid VehiclePhotosDto vehiclePhotosDto){
-        return new ResponseEntity<>(vehiclePhotosService.saveVehiclePhotos(vehiclePhotosDto), HttpStatus.CREATED);
+    public ResponseEntity<ResponseVehiclePhotos> createVehiclePhotos(@RequestBody @Valid CreateVehiclePhotosDto createVehiclePhotosDto){
+        return new ResponseEntity<>(vehiclePhotosService.saveVehiclePhotos(createVehiclePhotosDto), HttpStatus.CREATED);
 
     }
 

@@ -7,17 +7,20 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Entity
+@Table(name = "VEHICLE_STOCK_ENTRY")
 @Getter
 @Setter
 @NoArgsConstructor
-@Entity
-@Table(name = "VEHICLE_STOCK_ENTRY")
+@ToString
 public class VehicleStockEntry implements Serializable {
 
     @Id

@@ -1,8 +1,8 @@
 package com.api.parkingcontrol.service;
 
-import com.api.parkingcontrol.dto.VehiclePhotosDto;
+import com.api.parkingcontrol.dto.creation.CreateVehiclePhotosDto;
 import com.api.parkingcontrol.dto.responses.ResponseVehiclePhotos;
-import com.api.parkingcontrol.init.exceptions.VehiclePhotosException;
+import com.api.parkingcontrol.exceptions.VehiclePhotosException;
 import com.api.parkingcontrol.models.VehiclePhotos.VehiclePhotos;
 import com.api.parkingcontrol.repository.VehiclePhotosRepository;
 import com.api.parkingcontrol.repository.VehicleStockEntryRepository;
@@ -22,11 +22,11 @@ public class VehiclePhotosService {
 
     final VehicleStockEntryRepository vehicleStockEntryRepository;
 
-    public ResponseVehiclePhotos saveVehiclePhotos(VehiclePhotosDto vehiclePhotosDto) {
+    public ResponseVehiclePhotos saveVehiclePhotos(CreateVehiclePhotosDto createVehiclePhotosDto) {
         var vehiclePhotos = new VehiclePhotos();
-        BeanUtils.copyProperties(vehiclePhotosDto, vehiclePhotos);
+        BeanUtils.copyProperties(createVehiclePhotosDto, vehiclePhotos);
 
-        var vehicleStockEntry = vehicleStockEntryRepository.findById(vehiclePhotosDto.getId()).orElseThrow(() -> new VehiclePhotosException("Entry stock not Found !!!"));
+        var vehicleStockEntry = vehicleStockEntryRepository.findById(createVehiclePhotosDto.getId()).orElseThrow(() -> new VehiclePhotosException("Entry stock not Found !!!"));
         vehiclePhotos.setVehicleStockEntry(vehicleStockEntry);
 
         vehiclePhotosRepository.save(vehiclePhotos);

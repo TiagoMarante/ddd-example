@@ -1,6 +1,6 @@
 package com.api.parkingcontrol.service;
 
-import com.api.parkingcontrol.dto.VehicleStockEntryDto;
+import com.api.parkingcontrol.dto.creation.CreateVehicleStockEntryDto;
 import com.api.parkingcontrol.dto.responses.ResponseVehicleStockEntry;
 import com.api.parkingcontrol.models.VehicleStockEntry.VehicleStatus;
 import com.api.parkingcontrol.models.VehicleStockEntry.VehicleStockEntry;
@@ -24,21 +24,25 @@ public class VehicleStockEntryService {
         return vehicleStockEntryRepository.existsByVin(vin);
     }
 
-    public ResponseVehicleStockEntry saveVehicleStockEntry(VehicleStockEntryDto vehicleStockEntryDto) {
+    public ResponseVehicleStockEntry saveVehicleStockEntry(CreateVehicleStockEntryDto createVehicleStockEntryDto) {
         var vehicleStockEntry = new VehicleStockEntry();
-        BeanUtils.copyProperties(vehicleStockEntryDto, vehicleStockEntry);
+        BeanUtils.copyProperties(createVehicleStockEntryDto, vehicleStockEntry);
 
-        var vehicleStatus = new VehicleStatus(vehicleStockEntryDto.getStatusDescription());
+        var vehicleStatus = new VehicleStatus(createVehicleStockEntryDto.getStatusDescription());
         vehicleStockEntry.setVehicleStatus(vehicleStatus);
 
         return mapToResponse(vehicleStockEntryRepository.save(vehicleStockEntry));
     }
 
     public List<ResponseVehicleStockEntry> findAll(Pageable pageable) {
-        System.out.println("entrei sem problemas");
         var allEntries = vehicleStockEntryRepository.findAll();
         System.out.println(allEntries);
         return allEntries.stream().map(this::mapToResponse).collect(Collectors.toList());
+    }
+
+    public VehicleStockEntry findById(long id) {
+        var stockEntry = vehicleStockEntryRepository.findById(id);
+        return stockEntry.get();
     }
 
 

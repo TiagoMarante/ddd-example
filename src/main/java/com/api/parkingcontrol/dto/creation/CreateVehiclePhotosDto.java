@@ -1,4 +1,4 @@
-package com.api.parkingcontrol.dto;
+package com.api.parkingcontrol.dto.creation;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 @ToString
-public class VehiclePhotosDto {
+public class CreateVehiclePhotosDto {
     @Min(1)
     private long id;
 
