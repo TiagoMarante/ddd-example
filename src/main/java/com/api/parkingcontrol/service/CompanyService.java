@@ -33,8 +33,8 @@ public class CompanyService {
     }
 
     public ResponseCompanyDto findById(long id) {
-        var stockEntry = companyRepository.findById(id).orElseThrow(CompanyException::companyNotFound);
-        return mapToResponse(stockEntry);
+        var company = companyRepository.findById(id).orElseThrow(CompanyException::companyNotFound);
+        return mapToResponse(company);
     }
 
 

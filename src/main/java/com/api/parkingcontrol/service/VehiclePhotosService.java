@@ -8,7 +8,6 @@ import com.api.parkingcontrol.repository.VehiclePhotosRepository;
 import com.api.parkingcontrol.repository.VehicleStockEntryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,8 +36,8 @@ public class VehiclePhotosService {
     }
 
 
-    public List<ResponseVehiclePhotos> findAll(Pageable pageable) {
-        var allPhotos = vehiclePhotosRepository.findAll(pageable);
+    public List<ResponseVehiclePhotos> findAll() {
+        var allPhotos = vehiclePhotosRepository.findAll();
         return allPhotos.stream().map(this::mapToResponse).collect(Collectors.toList());
     }
 

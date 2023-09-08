@@ -35,4 +35,7 @@ public class CreateVehicleStockEntryDto {
     @Size(max = 200)
     private String statusDescription;
 
+    @Min(1)
+    private int company_id;
+
 }

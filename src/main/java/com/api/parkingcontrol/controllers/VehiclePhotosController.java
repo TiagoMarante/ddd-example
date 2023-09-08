@@ -4,9 +4,6 @@ import com.api.parkingcontrol.dto.creation.CreateVehiclePhotosDto;
 import com.api.parkingcontrol.dto.responses.ResponseVehiclePhotos;
 import com.api.parkingcontrol.service.VehiclePhotosService;
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,8 +26,8 @@ public class VehiclePhotosController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ResponseVehiclePhotos>> getAllParkingSpots(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable){
-        return ResponseEntity.status(HttpStatus.OK).body(vehiclePhotosService.findAll(pageable));
+    public ResponseEntity<List<ResponseVehiclePhotos>> getAllParkingSpots(){
+        return ResponseEntity.status(HttpStatus.OK).body(vehiclePhotosService.findAll());
     }
 
 }
